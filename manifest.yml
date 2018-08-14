@@ -3,5 +3,5 @@ applications:
 - name: demo-application
   memory: 768M
   instances: 1
-  random-route: true
-  path: ./target/demo-0.0.1-SNAPSHOT.jar
+  random-route: false
+  path: ./target/pasdemo-0.0.1-SNAPSHOT.jar
