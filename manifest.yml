@@ -1,6 +1,6 @@
 ---
 applications:
-- name: demo-application
+- name: pasdemo
   memory: 768M
   instances: 1
   random-route: false

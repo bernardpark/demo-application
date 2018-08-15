@@ -125,6 +125,23 @@
 	padding-left: 20px;
 }
 
+.button {
+	font: 15px Arial, Helvetica, sans-serif;
+	border: 1px solid var(--button-bg);
+	color: var(--text-white);
+	background: var(--button-bg);
+	padding: 15px 5px;
+	border-radius: 10px;
+	text-decoration: none;
+}
+
+.button:hover {
+	border: 1px solid var(--button-hv);
+	background: var(--button-hv);
+	text-decoration: none;	
+	color: var(--text-white);
+}
+
 input[type=submit] {
     border: 1px solid var(--button-bg);
     color: var(--text-white);

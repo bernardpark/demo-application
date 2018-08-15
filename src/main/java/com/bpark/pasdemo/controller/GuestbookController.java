@@ -24,16 +24,16 @@ public class GuestbookController {
 	@Autowired
 	GuestRepository guestRepository;
 	
-	private static AtomicInteger ID_GENERATOR = new AtomicInteger(1000);
+	private static AtomicInteger ID_GENERATOR = new AtomicInteger( 1000 );
 
 	@GetMapping( "/guestbook-add" )
-	public String guestbookadd( Model model ) {
-		model.addAttribute( "guestForm", new GuestForm());
+	public String getGuestbookAdd( Model model ) {
+		model.addAttribute( "guestForm", new GuestForm() );
 		return "guestbook-add";
 	}
 
 	@PostMapping( "/guestbook-add" )
-	public String guestbookadd( @ModelAttribute( "guestForm" ) GuestForm guestForm, BindingResult bindingResult, Model model ) {
+	public String postGuestbookAdd( @ModelAttribute( "guestForm" ) GuestForm guestForm, BindingResult bindingResult, Model model ) {
 		if ( bindingResult.hasErrors() ) {
 			return "guestbook-add";
 		}
@@ -49,13 +49,9 @@ public class GuestbookController {
 	}
 	
 	@GetMapping( "/guestbook-view" )
-	public String guestbookview( Model model ) {
-		System.out.println( "finding all guests..." );
-		
+	public String getGuestbookView( Model model ) {
 		Map<Object, Object> guestMap = guestRepository.findAllMessages();
 		List<String> guests = new ArrayList<String>();
-
-		System.out.println( "Number of guests found: " + guestMap.size() );
 		
 		for ( Object id : guestMap.keySet() ) {
 			StringBuilder sb = new StringBuilder();
@@ -78,21 +74,15 @@ public class GuestbookController {
 		
 		return "guestbook-view";
 	}
-//
-//	@PostMapping( "/guestbook-view" )
-//	public String guestbookview( @ModelAttribute( "guestForm" ) GuestForm guestForm, BindingResult bindingResult, Model model ) {
-//		if ( bindingResult.hasErrors() ) {
-//			return "guestbook-view";
-//		}
-//		
-//		guestForm.setId( ID_GENERATOR.getAndIncrement() + "" );
-//		guestForm.setDateAdded( new Date() );
-//		System.out.println( guestForm.toString() );
-//		guestRepository.add( guestForm.getId(), guestForm );
-//		
-//		guestForm.clear();
-//		
-//		return "guestbook-add";
-//	}
 	
+	@GetMapping( "/guestbook-clear" )
+	public String getGuestbookClear( Model model ) {
+		return "guestbook-clear";
+	}	
+	
+	@PostMapping( "/guestbook-clear" )
+	public void postGuestbookClear( Model model ) {
+		guestRepository.deleteAll();
+	}
+
 }
