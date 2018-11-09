@@ -23,34 +23,31 @@
 
 			<nav>
 				<a href="/">Home</a>
-				<a href="/guestbook-add" class="selected">Guestbook (Redis)</a>
-				<a href="/notes-add">Notes (MySQL)</a>
+				<a href="/guestbook-add">Guestbook (Redis)</a>
+				<a href="/notes-add" class="selected">Notes (MySQL)</a>
+				
 			</nav>
 		</div>
 	</header>
   
 	<div>
 		<div class="sidenav">
-			<a href="/guestbook-add" class="selected">Add Guest</a>
-			<a href="/guestbook-view">View History</a>
-			<a href="/guestbook-clear">Clear History</a>
+			<a href="/notes-add" class="selected">Add Note</a>
+			<a href="/notes-view">View Notes</a>
+			<a href="/notes-clear">Clear Notes</a>
 		</div>
 
 		<div class="content">
-			<h1>Add a guest</h1>
-			<form action="#" th:action="@{/guestbook-add}" th:object="${guestForm}" method="post">
+			<h1>Add a note</h1>
+			<form action="#" th:action="@{/notes-add}" th:object="${noteForm}" method="post">
 				<p>
-					First Name:
-					<input type="text" th:field="*{firstName}"/>
+					Title:
+					<input type="text" th:field="*{title}"/>
 				</p>
 				<p>
-					Last Name:
-					<input type="text" th:field="*{lastName}"/>
+					Content:
+					<input type="text" th:field="*{content}"/>
 				</p>
-				<div>
-					<label th:for="areYouLate" th:text="'Are you late?'"></label>
-					<input type="checkbox" th:field="*{areYouLate}" />
-				</div>
 				<p>
 					<input type="submit" value="Submit" />
 					<input type="reset" value="Reset" />

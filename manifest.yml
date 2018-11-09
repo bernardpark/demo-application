@@ -1,7 +1,6 @@
 ---
 applications:
-- name: pasdemo
-  memory: 768M
+- name: pas-demo
+  memory: 1G
   instances: 1
-  random-route: false
   path: ./target/pasdemo-0.0.1-SNAPSHOT.jar

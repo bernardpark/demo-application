@@ -23,22 +23,22 @@
 
 			<nav>
 				<a href="/">Home</a>
-				<a href="/guestbook-add" class="selected">Guestbook (Redis)</a>
-				<a href="/notes-add">Notes (MySQL)</a>
+				<a href="/guestbook-add">Guestbook (Redis)</a>
+				<a href="/notes-add" class="selected">Notes (MySQL)</a>
 			</nav>
 		</div>
 	</header>
   
 	<div>
 		<div class="sidenav">
-			<a href="/guestbook-add">Add Guest</a>
-			<a href="/guestbook-view" class="selected">View History</a>
-			<a href="/guestbook-clear">Clear History</a>
+			<a href="/notes-add">Add Note</a>
+			<a href="/notes-view" class="selected">View Notes</a>
+			<a href="/notes-clear">Clear Notes</a>
 		</div>
 
 		<div class="content">
-			<h1>View all attending guests</h1>
-    			<p th:text="${guests}" />
+			<h1>View all notes</h1>
+    			<p th:text="${notes}" />
 		</div>
 	</div>
 
